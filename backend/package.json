@@ -11,9 +11,7 @@
                 "cors": "^2.8.5",
                 "dotenv": "^16.0.0",
                 "express": "^4.21.2",
+                "mongo-express": "^1.0.0-alpha.4",
                 "mongoose": "^6.2.0"
-        },
-        "devDependencies": {
-                "mongo-express": "^1.1.0-rc-3"
         }
 }
