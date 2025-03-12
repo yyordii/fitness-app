@@ -1,6 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
+
+// Register a new user
+router.post('/register', async (req, res) => {
+    try {
+        console.log("Register route hit");
+        const { username, password } = req.body;
+        const user = new User({ username, password });
+        await user.save();
+        res.status(201).json({ message: 'User registered successfully' });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+// Login a user
+router.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ error: 'Invalid credentials' });
+        }
+        res.status(200).json({ message: 'Login successful' });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
 
 // Create a new user
 router.post('/', async (req, res) => {
