@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fitness App" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Fitness App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Fitness App</h1>
+      <nav>
+        <a href="index.html">Login</a>
+    </nav>
+    </header>
+    <div class="hero">
+      <h1>Welcome to Fitness App</h1>
+    </div>
+    <div class="features" id="features"></div>
+    <footer>
+      <p>&copy; 2025 Fitness App. All rights reserved.</p>
+    </footer>
+    <script>
+      async function fetchWorkouts() {
+        try {
+          const response = await fetch("http://localhost:5000/api/workouts");
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const workouts = await response.json();
+          console.log("Fetched workouts:", workouts);
+          const featuresDiv = document.getElementById("features");
+          workouts.forEach((workout) => {
+            const featureDiv = document.createElement("div");
+            featureDiv.className = "feature";
+            featureDiv.innerHTML = `
+                        <h2>${workout.name}</h2>
+                        <p>Muscle Group: ${workout.muscleGroup}</p>
+                        <p>Sets: ${workout.sets}</p>
+                        <p>Reps: ${workout.reps}</p>
+                        <p>Weight: ${workout.weight} ${workout.unit}</p>
+                        <p>Notes: ${workout.notes}</p>
+                        <p>Date: ${workout.date}</p>
+                    `;
+            featuresDiv.appendChild(featureDiv);
+          });
+        } catch (error) {
+          console.error("Error fetching workouts:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", fetchWorkouts);
+    </script>
+  </body>
+</html>
