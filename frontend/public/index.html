@@ -29,7 +29,7 @@
             throw new Error("Network response was not ok");
           }
           const workouts = await response.json();
-          console.log("Fetched workouts:", workouts); // Add this line
+          console.log("Fetched workouts:", workouts);
           const featuresDiv = document.getElementById("features");
           workouts.forEach((workout) => {
             const featureDiv = document.createElement("div");
