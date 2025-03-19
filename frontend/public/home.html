@@ -1,56 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Fitness App" />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <title>Fitness App</title>
-  </head>
-  <body>
-    <header>
-      <h1>Fitness App</h1>
-      <nav>
-        <a href="index.html">Login</a>
-    </nav>
-    </header>
-    <div class="hero">
-      <h1>Welcome to Fitness App</h1>
-    </div>
-    <div class="features" id="features"></div>
-    <footer>
-      <p>&copy; 2025 Fitness App. All rights reserved.</p>
-    </footer>
-    <script>
-      async function fetchWorkouts() {
-        try {
-          const response = await fetch("http://localhost:5000/api/workouts");
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const workouts = await response.json();
-          console.log("Fetched workouts:", workouts);
-          const featuresDiv = document.getElementById("features");
-          workouts.forEach((workout) => {
-            const featureDiv = document.createElement("div");
-            featureDiv.className = "feature";
-            featureDiv.innerHTML = `
-                        <h2>${workout.name}</h2>
-                        <p>Muscle Group: ${workout.muscleGroup}</p>
-                        <p>Sets: ${workout.sets}</p>
-                        <p>Reps: ${workout.reps}</p>
-                        <p>Weight: ${workout.weight} ${workout.unit}</p>
-                        <p>Notes: ${workout.notes}</p>
-                        <p>Date: ${workout.date}</p>
-                    `;
-            featuresDiv.appendChild(featureDiv);
-          });
-        } catch (error) {
-          console.error("Error fetching workouts:", error);
-        }
-      }
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="description" content="Fitness App" />
+          <link rel="stylesheet" href="./styles/index.css" />
+          <title>Fitness App</title>
+        </head>
+        <body>
+          <header>
+            <h1>Fitness App</h1>
+            <nav>
+              <span id="welcomeMessage"></span>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Profile</a>
+                  <a href="#" id="logout">Logout</a>
+                  <a href="#">Option 1</a>
+                  <a href="#">Option 2</a>
+                </div>
+              </div>
+            </nav>
+          </header>
+          <div class="hero">
+            <h1>Welcome to Fitness App</h1>
+          </div>
+          <div class="features" id="features"></div>
+          <footer>
+            <p>&copy; 2025 Fitness App. All rights reserved.</p>
+          </footer>
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const welcomeMessage = document.getElementById('welcomeMessage');
+              const username = localStorage.getItem('username');
+              if (username) {
+                welcomeMessage.textContent = `Welcome ${username}`;
+              } else {
+                welcomeMessage.innerHTML = '<a href="index.html">Login</a>';
+              }
 
-      document.addEventListener("DOMContentLoaded", fetchWorkouts);
-    </script>
-  </body>
-</html>
+              document.getElementById('logout').addEventListener('click', () => {
+                localStorage.removeItem('username');
+                window.location.href = 'index.html';
+              });
+            });
+
+            async function fetchWorkouts() {
+              try {
+                const response = await fetch("http://localhost:5000/api/workouts");
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+                const workouts = await response.json();
+                console.log("Fetched workouts:", workouts);
+                const featuresDiv = document.getElementById("features");
+                workouts.forEach((workout) => {
+                  const featureDiv = document.createElement("div");
+                  featureDiv.className = "feature";
+                  featureDiv.innerHTML = `
+                    <h2>${workout.name}</h2>
+                    <p>Muscle Group: ${workout.muscleGroup}</p>
+                    <p>Sets: ${workout.sets}</p>
+                    <p>Reps: ${workout.reps}</p>
+                    <p>Weight: ${workout.weight} ${workout.unit}</p>
+                    <p>Notes: ${workout.notes}</p>
+                    <p>Date: ${workout.date}</p>
+                  `;
+                  featuresDiv.appendChild(featureDiv);
+                });
+              } catch (error) {
+                console.error("Error fetching workouts:", error);
+              }
+            }
+
+            document.addEventListener("DOMContentLoaded", fetchWorkouts);
+          </script>
+        </body>
+      </html>
