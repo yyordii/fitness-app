@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome to Your Profile</h1>
+    <p id="userId">Your User ID: </p> <!-- Placeholder for displaying the userId -->
+
+    <div id="workouts">
+        <h2>Your Workouts</h2>
+        <!-- Workouts will be dynamically added here -->
+    </div>
+
+    <h2>Add a Workout</h2>
+    <form id="workoutForm">
+        <input type="text" id="workoutName" placeholder="Workout Title" required />
+        <input type="text" id="muscleGroup" placeholder="Muscle Group" required />
+        <input type="number" id="sets" placeholder="Sets" required />
+        <input type="number" id="reps" placeholder="Reps" required />
+        <input type="number" id="weight" placeholder="Weight" required />
+        <select id="unit" required>
+            <option value="kg">kg</option>
+            <option value="lbs">lbs</option>
+        </select>
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <button type="submit">Add Workout</button>
+    </form>
+
+    <script src="./scripts/profile.js"></script> <!-- Link to the profile.js script -->
+</body>
+</html>
