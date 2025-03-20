@@ -38,19 +38,19 @@
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const welcomeMessage = document.getElementById('welcomeMessage');
         const username = localStorage.getItem('username');
-        if (username) {
-            welcomeMessage.textContent = `Welcome ${username}`;
-        } else {
-            welcomeMessage.innerHTML = '<a href="index.html">Login</a>';
-        }
+        const welcomeMessage = document.getElementById('welcomeMessage');
 
+        if (username) {
+            welcomeMessage.textContent = `Welcome, ${username}!`;
+        } else {
+            welcomeMessage.textContent = "Welcome, Guest!";
+        }
+    });
         document.getElementById('logout').addEventListener('click', () => {
             localStorage.removeItem('username');
             window.location.href = 'index.html';
         });
-    });
 
     async function fetchWorkouts() {
         try {

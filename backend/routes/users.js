@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
         });
 
         console.log('Cookie gezet:', `userId=${user._id}`); // Controleer in de server logs
-        res.status(200).json({ message: 'Login successful', userId: user._id });
+        res.status(200).json({ message: 'Login successful', userId: user._id, username: user.username });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
