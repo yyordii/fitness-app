@@ -28,7 +28,15 @@ router.post('/login', async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
-        res.status(200).json({ message: 'Login successful' });
+
+        res.cookie('userId', user._id.toString(), {
+            httpOnly: false,  // Zet op `true` als je niet wilt dat JavaScript het kan lezen
+            secure: false,    // Zet op `true` als je HTTPS gebruikt
+            maxAge: 3600000   // 1 uur geldig
+        });
+
+        console.log('Cookie gezet:', `userId=${user._id}`); // Controleer in de server logs
+        res.status(200).json({ message: 'Login successful', userId: user._id });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

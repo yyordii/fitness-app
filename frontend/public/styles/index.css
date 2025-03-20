@@ -1,122 +1,175 @@
 * {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-      header {
-        background-color: #4caf50;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        position: relative;
-      }
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
 
-      header nav {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-      }
+header nav {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+}
 
-      .hero {
-        background: url("hero-image.jpg") no-repeat center center/cover;
-        height: 60vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: red;
-        text-align: center;
-      }
+.hero {
+    background: url("hero-image.jpg") no-repeat center center/cover;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    text-align: center;
+}
 
-      .hero h1 {
-        font-size: 3rem;
-      }
+.hero h1 {
+    font-size: 3rem;
+}
 
-      .features {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 2rem;
-      }
+.features {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: flex-start;  /* Moves box higher */
+    height: 80vh;  /* Reduce height so it's not pushed too low */
+    padding: 2rem;
+    margin-top: -40px; /* Moves it up manually */
+}
 
-      .feature {
-        flex: 1 1 30%;
-        margin: 1rem;
-        text-align: center;
-        border: 1px solid #ddd;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
 
-      .feature img {
-        width: 100px;
-        height: 100px;
-      }
+/* Feature box (Square) */
+.feature {
+    width: 300px;  /* Fixed square size */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    padding: 0;  /* Remove padding to keep it tight */
+}
 
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-      }
+/* GIF Styling */
+.feature img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures it stays within the box */
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
+/* Text inside feature box */
+.feature .feature-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 2;
+    visibility: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;  /* Smaller text to fit better */
+    overflow: hidden;
+}
 
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
+/* Hide GIF when hovering, show text */
+.feature:hover img {
+    opacity: 0;
+}
 
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
+.feature:hover .feature-text {
+    opacity: 1;
+    visibility: visible;
+}
 
-      .dropdown-content a:hover {
-        background-color: #f1f1f1;
-      }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
 
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-      .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
-      }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
-      .dropbtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 
-      .icon {
-        width: 24px;
-        height: 24px;
-        stroke: white;
-        fill: none;
-      }
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    fill: none;
+}
+
 #welcomeMessage {
-  margin-right: 1px;
-  position: relative;
-  top: -0.5rem; /* Adjust this value to move the text higher or lower */
+    margin-right: 1px;
+    position: relative;
+    top: -0.01rem;
+    font-weight: bold;
 }

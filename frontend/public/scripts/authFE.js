@@ -36,11 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const response = await fetch('http://localhost:5000/users/login', {
                                     method: 'POST',
                                     headers: {'Content-Type': 'application/json'},
-                                    body: JSON.stringify({username, password})
+                                    body: JSON.stringify({username, password}),
+                                    credentials: 'include'
                                 });
                                 const data = await response.json();
                                 if (response.ok) {
-                                    localStorage.setItem('username', username); // Store username in localStorage
+                                    console.log('User ID opgeslagen in cookie:', document.cookie);
                                     window.location.href = 'home.html';
                                 } else {
                                     errorMessage.textContent = data.error;
@@ -52,4 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 errorMessage.style.color = 'red';
                             }
                         });
+                        function getCookie(name) {
+                            const cookies = document.cookie.split('; ');
+                            for (let cookie of cookies) {
+                                const [key, value] = cookie.split('=');
+                                if (key === name) return value;
+                            }
+                            return null;
+                        }
                     }});

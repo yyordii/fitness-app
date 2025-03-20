@@ -4,10 +4,16 @@ const cors = require("cors");
 const app = express();
 const workoutRoutes = require("./routes/workouts");
 const userRoutes = require("./routes/users");
+const cookieparser = require("cookie-parser");
 require("dotenv").config();
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // 🔥 Specifieke origin (NIET '*')
+    credentials: true // 🔥 Noodzakelijk voor cookies!
+}));
+
 app.use(express.json());
+app.use (cookieparser());
 
 mongoose.set("strictQuery", true);
 
