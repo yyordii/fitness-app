@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userIdSpan = document.getElementById("userId");
   const workoutForm = document.getElementById("workoutForm");
   const workoutsDiv = document.getElementById("workouts");
-
+  
 
   // Fetch and display workouts
   async function fetchWorkouts() {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const workouts = await response.json();
-      workoutsDiv.innerHTML = "<h2>Your Workouts</h2>"; // Clear existing workouts
+      workoutsDiv.innerHTML = ""; // Clear existing workouts
       workouts.forEach((workout) => {
         const workoutDiv = document.createElement("div");
         workoutDiv.className = "workout";

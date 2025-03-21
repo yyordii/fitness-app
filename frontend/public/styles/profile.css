@@ -1,75 +1,271 @@
+* {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styling */
 header {
-    background-color: #4caf50;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
+  background-color: white;
+  color: black;
+  padding: 1rem 2rem 1rem 10rem;
+  display: flex;
+  justify-content: space-between; /* Space between h1 and nav */
+  align-items: center; /* Vertically align items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
+  text-align: left; /* Ensure text is aligned to the left */
 }
 
 header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: auto;
+  display: flex;
+  align-items: center;
+  gap: 1 rem; /* Space between nav items */
+  justify-content: flex-end; /* Align nav items to the right */
 }
 
-.nav-title {
-    color: white;
+header a {
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: rgb(255, 94, 0); /* Add hover effect */
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
-.dropbtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+.dropdown .dropbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    stroke: white;
-    fill: none;
+  width: 24px;
+  height: 24px;
+  stroke: black;
+  fill: none;
+}
+
+/* Ensure dropdown is visible when active */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgb(255, 157, 0),
+    rgb(255, 94, 0)
+  ); /* Gradient from orange to red */
+  height: 60vh; /* Set the height of the banner */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: flex-start; /* Align content to the left */
+  padding: 10rem; /* Add padding for spacing */
+  color: white; /* White text for contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+}
+
+/* Hero Content Styling */
+.hero-content {
+  max-width: 50%; /* Limit the width of the content */
+}
+
+.hero h1 {
+  font-size: 3rem; /* Large heading */
+  margin-bottom: 1rem;
+}
+
+/* Workouts Section Styling (Based on Features) */
+#workouts {
+  display: flex;
+  justify-content: left; /* Centers horizontally */
+  align-items: flex-start; /* Aligns items to the top */
+  flex-wrap: wrap; /* Allows wrapping for multiple workout cards */
+  gap: 1.5rem; /* Space between workout cards */
+  padding: 1rem 2rem 1rem 10rem;
+  margin-top: 1rem; /* Add spacing above the section */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners for the section */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.workout-h1 {
+  padding: 1rem 2rem 1rem 10rem;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  bottom: 0;
+}
+
+.workout {
+  width: 300px; /* Fixed size for workout cards */
+  height: auto; /* Allow height to adjust dynamically */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center content horizontally */
+  padding: 1rem; /* Add padding inside the card */
+  background-color: white; /* White background for each workout */
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align text */
+}
+
+.workout h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333; /* Darker text for better readability */
+}
+
+.workout p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #555; /* Slightly lighter text for details */
+}
+
+/* Form Styling */
+/* Form Styling */
+#workoutForm {
+  max-width: 600px; /* Limit the width for better readability */
+  margin: 1rem 2rem 1rem 10rem;
+  padding: 2rem; /* Add padding inside the form */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 1rem; /* Add spacing between form elements */
+  align-self: flex-start; /* Align the form to the left */
+}
+
+/* Form Elements */
+#workoutForm input,
+#workoutForm select,
+#workoutForm textarea,
+#workoutForm button {
+  width: 100%; /* Full width for all form elements */
+  padding: 0.8rem; /* Add padding for better usability */
+  font-size: 1rem; /* Consistent font size */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+#workoutForm input:focus,
+#workoutForm select:focus,
+#workoutForm textarea:focus {
+  outline: none; /* Remove default outline */
+  border-color: rgb(255, 94, 0); /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(255, 94, 0, 0.5); /* Add glow effect */
+}
+
+#workoutForm textarea {
+  resize: none; /* Disable resizing */
+  height: 100px; /* Set a fixed height */
+}
+
+#workoutForm button {
+  background-color: rgb(255, 94, 0); /* Theme color for the button */
+  color: white; /* White text for contrast */
+  font-weight: bold;
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor for buttons */
+  transition: background-color 0.3s ease;
+}
+
+#workoutForm button:hover {
+  background-color: rgb(255, 157, 0); /* Slightly lighter color on hover */
+}
+
+/* Responsive Design for Workouts */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row; /* Keep h1 and nav in a row */
+    justify-content: space-between; /* Space between h1 and nav */
+    align-items: center; /* Vertically align items */
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  header h1 {
+    font-size: 1.2rem; /* Adjust font size for mobile */
+  }
+
+  header nav {
+    justify-content: flex-end; /* Keep nav aligned to the right */
+    width: auto; /* Ensure it doesn't take full width */
+  }
+
+  header a {
+    font-size: 0.9rem; /* Adjust font size for mobile */
+    text-decoration: none;
+  }
+  #workouts {
+    flex-direction: column; /* Stack workouts vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  .workout {
+    width: 90%; /* Make workout cards take up most of the screen width */
+    margin-bottom: 1.5rem; /* Add spacing between workout cards */
+  }
+
+  #workoutForm {
+    margin: 20px;
+  }
+
+  .workout-h1 {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
 }

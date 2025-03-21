@@ -46,40 +46,55 @@
     </div>
     <div class="features" id="features"></div>
 
-        <section class="cities-component background-grey">
-        <div class="cities__content">
-            <h2 class="cities__heading">
-                Find us everywhere
-            </h2>
-            <div class="cities__description">
-                <p><span style="color: rgb(254, 112, 0);">230+ clubs</span><span style="color: rgb(45, 45, 45);">&nbsp;in Nederland</span></p>
-            </div>
-            <div class="js-cities-slider cities__slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide city">
-                        <a href="https://www.basic-fit.com/en-nl/gyms/amsterdam/amsterdam.html">
-                            <div class="city__content">
-                                <picture class="city__picture">
-                                    <img class="city__image" src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw3bf7f751/NL-city-component/city-amsterdam.jpg?sw=205" alt="Amsterdam" loading="lazy">
-                                </picture>
-                                <h4 class="city__name">Amsterdam</h4>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide city">
-                        <a href="https://www.basic-fit.com/en-nl/gyms/rotterdam/rotterdam.html">
-                            <div class="city__content">
-                                <picture class="city__picture">
-                                    <img class="city__image" src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw0a7b049d/Rotterdam.jpg?sw=205" alt="Rotterdam" loading="lazy">
-                                </picture>
-                                <h4 class="city__name">Rotterdam</h4>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Add more cities as needed -->
-                </div>
-            </div>
+    <section class="cities-component background-grey">
+      <div class="cities__content">
+        <h2 class="cities__heading">Find us everywhere</h2>
+        <div class="cities__description">
+          <p>
+            <span style="color: rgb(254, 112, 0)">230+ clubs</span
+            ><span style="color: rgb(45, 45, 45)">&nbsp;in Nederland</span>
+          </p>
         </div>
+        <div class="js-cities-slider cities__slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide city">
+              <a
+                href="https://www.basic-fit.com/en-nl/gyms/amsterdam/amsterdam.html"
+              >
+                <div class="city__content">
+                  <picture class="city__picture">
+                    <img
+                      class="city__image"
+                      src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw3bf7f751/NL-city-component/city-amsterdam.jpg?sw=205"
+                      alt="Amsterdam"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h4 class="city__name">Amsterdam</h4>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-slide city">
+              <a
+                href="https://www.basic-fit.com/en-nl/gyms/rotterdam/rotterdam.html"
+              >
+                <div class="city__content">
+                  <picture class="city__picture">
+                    <img
+                      class="city__image"
+                      src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw0a7b049d/Rotterdam.jpg?sw=205"
+                      alt="Rotterdam"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <h4 class="city__name">Rotterdam</h4>
+                </div>
+              </a>
+            </div>
+            <!-- Add more cities as needed -->
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -137,22 +152,22 @@
 
       document.addEventListener("DOMContentLoaded", fetchWorkouts);
 
-    document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const dropdown = document.querySelector(".dropdown");
         const dropbtn = document.querySelector(".dropbtn");
 
         dropbtn.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default behavior
-            dropdown.classList.toggle("active"); // Toggle the "active" class
+          e.preventDefault(); // Prevent default behavior
+          dropdown.classList.toggle("active"); // Toggle the "active" class
         });
 
         // Optional: Close the dropdown if clicking outside
         document.addEventListener("click", (e) => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove("active");
-            }
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("active");
+          }
         });
-    });
+      });
     </script>
   </body>
 </html>
