@@ -6,33 +6,68 @@
 }
 
 header {
-    background-color: #4caf50;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem 1rem 10rem;
+    display: flex;
+    justify-content: space-between; /* Space between h1 and nav */
+    align-items: center; /* Vertically align items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+    text-align: left; /* Ensure text is aligned to the left */
 }
 
 header nav {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
     display: flex;
     align-items: center;
+    gap: 1rem; /* Space between nav items */
+    justify-content: flex-end; /* Align nav items to the right */
 }
 
+header nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: rgb(255, 94, 0); /* Add hover effect */
+}
+
+/* Hero Section Styling */
 .hero {
-    background: url("hero-image.jpg") no-repeat center center/cover;
-    height: 30vh;
+    background: linear-gradient(135deg, rgb(255, 157, 0), rgb(255, 94, 0)); /* Gradient from orange to red */
+    height: 60vh; /* Set the height of the banner */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: red;
-    text-align: center;
+    align-items: center; /* Vertically center content */
+    justify-content: flex-start; /* Align content to the left */
+    padding: 10rem; /* Add padding for spacing */
+    color: white; /* White text for contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+}
+
+/* Hero Content Styling */
+.hero-content {
+    max-width: 50%; /* Limit the width of the content */
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Large heading */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Slightly smaller for the quote */
+    font-style: italic; /* Italicize the quote */
+    line-height: 1.5;
 }
 
 .features {
@@ -40,14 +75,14 @@ header nav {
     justify-content: center;  /* Centers horizontally */
     align-items: flex-start;  /* Moves box higher */
     height: 80vh;  /* Reduce height so it's not pushed too low */
-    padding: 2rem;
+    padding: 100px;
     margin-top: -40px; /* Moves it up manually */
 }
 
 
 /* Feature box (Square) */
 .feature {
-    width: 300px;  /* Fixed square size */
+    width: 300px; /* Fixed square size */
     height: 300px;
     display: flex;
     justify-content: center;
@@ -59,7 +94,9 @@ header nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.8);
     overflow: hidden;
-    padding: 0;  /* Remove padding to keep it tight */
+    padding: 1rem; /* Increased padding for more spacing inside the box */
+    gap: 1rem; /* Add space between feature boxes */
+    margin-right: 20px;
 }
 
 /* GIF Styling */
@@ -98,13 +135,14 @@ header nav {
 
 /* Hide GIF when hovering, show text */
 .feature:hover img {
-    opacity: 0;
+    opacity: 0; /* Hide the image on hover */
 }
 
 .feature:hover .feature-text {
-    opacity: 1;
+    opacity: 1; /* Show the text on hover */
     visibility: visible;
 }
+
 
 footer {
     background-color: #333;
@@ -116,13 +154,8 @@ footer {
     bottom: 0;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
 .dropdown-content {
-    display: none;
+    display: none; /* Hidden by default */
     position: absolute;
     right: 0;
     background-color: #f9f9f9;
@@ -142,15 +175,7 @@ footer {
     background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
-.dropbtn {
+.dropdown .dropbtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,13 +188,149 @@ footer {
 .icon {
     width: 24px;
     height: 24px;
-    stroke: white;
+    stroke: black;
     fill: none;
 }
 
+/* Ensure dropdown is visible when active */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
 #welcomeMessage {
-    margin-right: 1px;
-    position: relative;
-    top: -0.01rem;
+    font-size: 1rem;
     font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+/* Cities Component Styling */
+.cities-component {
+    background-color: #f5f5f5; /* Light grey background */
+    padding: 4rem 2rem; /* Add spacing around the section */
+    text-align: center;
+}
+
+.cities__heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2d2d2d; /* Dark grey */
+}
+
+.cities__description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #2d2d2d;
+}
+
+.cities__slider {
+    display: flex;
+    gap: 1rem; /* Increased space between city cards */
+    overflow-x: auto; /* Enable horizontal scrolling if the row overflows */
+    padding: 1rem 0;
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    scroll-behavior: smooth; /* Smooth scrolling for horizontal overflow */
+    width: 100%; /* Ensure the slider takes the full width of the container */
+    white-space: nowrap; /* Prevent text wrapping inside the slider */
+}
+
+.city {
+    flex: 0 0 auto; /* Prevent shrinking and ensure fixed width */
+    width: 200px; /* Fixed width for city cards */
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: inline-block; /* Ensure each city card behaves like an inline block */
+}
+
+.city:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.city__picture {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.city__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fits within the container */
+}
+
+.city__name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #2d2d2d;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row; /* Keep h1 and nav in a row */
+        justify-content: space-between; /* Space between h1 and nav */
+        align-items: center; /* Vertically align items */
+        padding: 1rem; /* Adjust padding for mobile */
+    }
+
+    header h1 {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+    }
+
+    header nav {
+        justify-content: flex-end; /* Keep nav aligned to the right */
+        width: auto; /* Ensure it doesn't take full width */
+    }
+
+    header nav a {
+        font-size: 0.9rem; /* Adjust font size for mobile */
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .features {
+        flex-direction: column; /* Stack features vertically */
+        align-items: center; /* Center items horizontally */
+        height: auto; /* Allow height to adjust dynamically */
+        padding: 2rem; /* Adjust padding for mobile */
+        margin-top: 0; /* Remove negative margin for better spacing */
+    }
+
+    .feature {
+        width: 90%; /* Make feature boxes take up most of the screen width */
+        height: auto; /* Allow height to adjust dynamically */
+        margin-bottom: 1.5rem; /* Add spacing between feature boxes */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem; /* Adjust padding for better spacing */
+    }
+
+    .feature img {
+        visibility: hidden; /* Hide the image by default */
+    }
+
+    .feature .feature-text {
+        opacity: 1; /* Always show the text */
+        visibility: visible; /* Ensure the text is visible */
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform for proper alignment */
+        background: none; /* Remove background for a cleaner look */
+        padding: 0; /* Remove extra padding */
+        text-align: center;
+        font-size: 1rem; /* Adjust font size for better readability */
+        height: auto; /* Allow height to adjust dynamically */
+        width: 100%; /* Ensure text takes full width */
+    }
+
 }

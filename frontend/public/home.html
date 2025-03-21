@@ -1,73 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Fitness App"/>
-    <link rel="stylesheet" href="./styles/index.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fitness App" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>Fitness App</title>
-</head>
-<body>
-<header>
-    <h1>Fitness App</h1>
-    <nav>
+  </head>
+  <body>
+    <header>
+      <h1>Fitness App</h1>
+      <nav>
         <span id="welcomeMessage"></span>
         <div class="dropdown">
-            <button class="dropbtn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                     stroke="currentColor" class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                </svg>
-            </button>
-            <div class="dropdown-content">
-                <a href="./profile.html">Profile</a>
-                <a href="#" id="logout">Logout</a>
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
+          <button class="dropbtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            <a href="./profile.html">Profile</a>
+            <a href="#" id="logout">Logout</a>
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="hero">
+      <h1>
+        Work out <br />
+        3 weeks extra
+      </h1>
+    </div>
+    <div class="features" id="features"></div>
+
+        <section class="cities-component background-grey">
+        <div class="cities__content">
+            <h2 class="cities__heading">
+                Find us everywhere
+            </h2>
+            <div class="cities__description">
+                <p><span style="color: rgb(254, 112, 0);">230+ clubs</span><span style="color: rgb(45, 45, 45);">&nbsp;in Nederland</span></p>
+            </div>
+            <div class="js-cities-slider cities__slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide city">
+                        <a href="https://www.basic-fit.com/en-nl/gyms/amsterdam/amsterdam.html">
+                            <div class="city__content">
+                                <picture class="city__picture">
+                                    <img class="city__image" src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw3bf7f751/NL-city-component/city-amsterdam.jpg?sw=205" alt="Amsterdam" loading="lazy">
+                                </picture>
+                                <h4 class="city__name">Amsterdam</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide city">
+                        <a href="https://www.basic-fit.com/en-nl/gyms/rotterdam/rotterdam.html">
+                            <div class="city__content">
+                                <picture class="city__picture">
+                                    <img class="city__image" src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/en_NL/dw0a7b049d/Rotterdam.jpg?sw=205" alt="Rotterdam" loading="lazy">
+                                </picture>
+                                <h4 class="city__name">Rotterdam</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add more cities as needed -->
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-<div class="hero">
-    <h1>Welcome to Fitness App</h1>
-</div>
-<div class="features" id="features"></div>
-<footer>
-    <p>&copy; 2025 Fitness App. All rights reserved.</p>
-</footer>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const username = localStorage.getItem('username');
-        const welcomeMessage = document.getElementById('welcomeMessage');
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Fitness App. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const username = localStorage.getItem("username");
+        const welcomeMessage = document.getElementById("welcomeMessage");
 
         if (username) {
-            welcomeMessage.textContent = `Welcome, ${username}!`;
+          welcomeMessage.textContent = `Welcome, ${username}!`;
         } else {
-            welcomeMessage.textContent = "Welcome, Guest!";
+          welcomeMessage.textContent = "Welcome, Guest!";
         }
-    });
-        document.getElementById('logout').addEventListener('click', () => {
-            localStorage.removeItem('username');
-            window.location.href = 'index.html';
-        });
+      });
+      document.getElementById("logout").addEventListener("click", () => {
+        localStorage.removeItem("username");
+        window.location.href = "index.html";
+      });
 
-    async function fetchWorkouts() {
+      async function fetchWorkouts() {
         try {
-            const response = await fetch("http://localhost:5000/api/workouts");
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            const workouts = await response.json();
-            console.log("Fetched workouts:", workouts);
+          const response = await fetch("http://localhost:5000/api/workouts");
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const workouts = await response.json();
+          console.log("Fetched workouts:", workouts);
 
-            const featuresDiv = document.getElementById("features");
+          const featuresDiv = document.getElementById("features");
 
-            workouts.forEach((workout) => {
-                const featureDiv = document.createElement("div");
-                featureDiv.className = "feature";
+          workouts.forEach((workout) => {
+            const featureDiv = document.createElement("div");
+            featureDiv.className = "feature";
 
-                featureDiv.innerHTML = `
+            featureDiv.innerHTML = `
             <img src="${workout.imagePath}" alt="${workout.name}">
             <div class="feature-text">
                 <h2>${workout.name}</h2>
@@ -79,14 +128,31 @@
                 <p>Date: ${workout.date}</p>
             </div>
         `;
-                featuresDiv.appendChild(featureDiv);
-            });
+            featuresDiv.appendChild(featureDiv);
+          });
         } catch (error) {
-            console.error("Error fetching workouts:", error);
+          console.error("Error fetching workouts:", error);
         }
-    }
+      }
 
-    document.addEventListener("DOMContentLoaded", fetchWorkouts);
-</script>
-</body>
+      document.addEventListener("DOMContentLoaded", fetchWorkouts);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const dropbtn = document.querySelector(".dropbtn");
+
+        dropbtn.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default behavior
+            dropdown.classList.toggle("active"); // Toggle the "active" class
+        });
+
+        // Optional: Close the dropdown if clicking outside
+        document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove("active");
+            }
+        });
+    });
+    </script>
+  </body>
 </html>
