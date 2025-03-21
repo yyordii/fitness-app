@@ -1,34 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-</head>
-<body>
-    <h1>Welcome to Your Profile</h1>
-    <p id="userId">Your User ID: </p> <!-- Placeholder for displaying the userId -->
-
-    <div id="workouts">
-        <h2>Your Workouts</h2>
-
-    </div>
-
-    <h2>Add a Workout</h2>
-    <form id="workoutForm">
-        <input type="text" id="workoutName" placeholder="Workout Title" required />
-        <input type="text" id="muscleGroup" placeholder="Muscle Group" required />
-        <input type="number" id="sets" placeholder="Sets" required />
-        <input type="number" id="reps" placeholder="Reps" required />
-        <input type="number" id="weight" placeholder="Weight" required />
-        <select id="unit" required>
-            <option value="kg">kg</option>
-            <option value="lbs">lbs</option>
-        </select>
-        <textarea id="notes" placeholder="Notes"></textarea>
-        <button type="submit">Add Workout</button>
-    </form>
-
-    <script src="./scripts/profile.js"></script> <!-- Link to the profile.js script -->
-</body>
-</html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Profile</title>
+                <link rel="stylesheet" href="./styles/profile.css">
+            </head>
+            <body>
+                <header>
+                    <a href="home.html"><h1>Fitness App</h1></a>
+                    <nav>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="home.html">Home</a>
+                                <a href="#" id="logout">Logout</a>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <div class="hero">
+                    <h1>Welcome to Your Profile</h1>
+                </div>
+                <div id="workouts">
+                    <h2>Your Workouts</h2>
+                </div>
+                <h2>Add a Workout</h2>
+                <form id="workoutForm">
+                    <input type="text" id="workoutName" placeholder="Workout Title" required />
+                    <input type="text" id="muscleGroup" placeholder="Muscle Group" required />
+                    <input type="number" id="sets" placeholder="Sets" required />
+                    <input type="number" id="reps" placeholder="Reps" required />
+                    <input type="number" id="weight" placeholder="Weight" required />
+                    <select id="unit" required>
+                        <option value="kg">kg</option>
+                        <option value="lbs">lbs</option>
+                    </select>
+                    <textarea id="notes" placeholder="Notes"></textarea>
+                    <button type="submit">Add Workout</button>
+                </form>
+                <footer>
+                    <p>&copy; 2025 Fitness App. All rights reserved.</p>
+                </footer>
+                <script src="./scripts/profile.js"></script>
+            </body>
+            </html>

@@ -16,14 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const workoutForm = document.getElementById("workoutForm");
   const workoutsDiv = document.getElementById("workouts");
 
-  // Display the userId on the page
-  if (userId) {
-    userIdSpan.textContent = `Your User ID: ${userId}`;
-  } else {
-    console.error("No userId found in cookies");
-    window.location.href = "index.html";
-    return;
-  }
 
   // Fetch and display workouts
   async function fetchWorkouts() {
