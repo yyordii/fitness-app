@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     userIdSpan.textContent = `Your User ID: ${userId}`;
   } else {
     console.error("No userId found in cookies");
-    window.location.href = "index.html"; // Redirect to login if no userId
+    window.location.href = "index.html";
     return;
   }
 
@@ -41,18 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const workouts = await response.json();
-      workoutsDiv.innerHTML = ""; // Clear existing workouts
+      workoutsDiv.innerHTML = "<h2>Your Workouts</h2>"; // Clear existing workouts
       workouts.forEach((workout) => {
         const workoutDiv = document.createElement("div");
         workoutDiv.className = "workout";
         workoutDiv.innerHTML = `
-                    <h4>${workout.name}</h4>
-                    <p>Muscle Group: ${workout.muscleGroup}</p>
-                    <p>Sets: ${workout.sets}, Reps: ${workout.reps}</p>
-                    <p>Weight: ${workout.weight} ${workout.unit}</p>
-                    <p>Notes: ${workout.notes}</p>
-                    <p>Date: ${new Date(workout.date).toLocaleDateString()}</p>
-                `;
+          <h4>${workout.name}</h4>
+          <p>Muscle Group: ${workout.muscleGroup}</p>
+          <p>Sets: ${workout.sets}, Reps: ${workout.reps}</p>
+          <p>Weight: ${workout.weight} ${workout.unit}</p>
+          <p>Notes: ${workout.notes}</p>
+          <p>Date: ${new Date(workout.date).toLocaleDateString()}</p>
+        `;
         workoutsDiv.appendChild(workoutDiv);
       });
     } catch (error) {
