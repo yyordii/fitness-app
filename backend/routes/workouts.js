@@ -23,6 +23,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+router.get('/:userId', async (req, res) => {
+    try {
+        const workouts = await Workouts.find({ user: req.params.userId });
+        if (!workouts) {
+            return res.status(404).json({ error: 'No workouts found for this user' });
+        }
+        res.json(workouts);
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
 // Get a workout by ID
 router.get('/:id', async (req, res) => {
     try {
